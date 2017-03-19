@@ -1,44 +1,46 @@
 #include <stdio.h>
 
-int check(int s, int t)
+int check(int sum, int time)
 {
-	if((t >= 0) && (t <= 365) && (s >= 1000))
+	if((time >= 0) && (time <= 365) && (sum >= 1000))
 		return 1;
 	return 0;
 }
 
+int count(int sum, int time)
+{
+	if ((time >= 0) && (time <= 30)) {
+		sum = sum - (sum * 0.1);
+	}
+
+	if ((time >= 31) && (time <= 120)) {
+		sum = sum + (sum * 0.02);
+	}
+
+	if ((time >= 121) && (time <= 240)) {
+		sum = sum + (sum * 0.06);
+	}
+
+	if ((time >= 241) && (time <= 365)) {
+		sum = sum + (sum * 0.12);
+	}
+	return sum;
+}
+
 int main()
 {
-	int s, t, r; // Не сокр.
+	int sum, time; // Не сокр.
 	printf("Введите сумму и срок вклада:\n");
-	scanf("%d%d", &s, &t);
+	scanf("%d%d", &sum, &time);
 
-	if (check(s, t) == 0) {
-		printf("WRONG\n");
+        if (check(sum, time) == 0) {
+                printf("ERROR");
+        }
+
+        else {
+		printf("Вклад стал равен: %d", count(sum, time));
 	}
 
-	else {
-		if ((t >= 0) && (t <= 30)) {
-			r = s - (s * 0.1);
-			printf("И теперь он равен: %d", r);
-		}
-
-		if ((t >= 31) && (t <= 120)) {
-                        r = s + (s * 0.02);
-                        printf("И теперь он равен: %d", r);
-                }
-
-		if ((t >= 121) && (t <= 240)) {
-                        r = s + (s * 0.06);
-                        printf("И теперь он равен: %d", r);
-                }
-
-		if ((t >= 241) && (t <= 365)) {
-                        r = s + (s * 0.12);
-                        printf("И теперь он равен: %d", r);
-                }
-	}
-	
 	printf("\n");
 
 	return 0;
