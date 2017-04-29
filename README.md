@@ -1,3 +1,3 @@
 # deposit-calc
 
-Variant 1
+Variant 2 (1 before)

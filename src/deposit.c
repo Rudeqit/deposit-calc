@@ -14,9 +14,9 @@ int bonus(int sum)
 	if (sum >= 100000) {
 		return 0.01;
 	}
-	
+
 	return 0;
-}		 
+} 
 
 int count(int sum, int time)
 {
