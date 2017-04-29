@@ -13,7 +13,7 @@ int main()
 
         else {
 		printf("Вклад стал равен: %d", count(sum, time));
-	}
+		}
 
 	printf("\n");
 
