@@ -15,6 +15,7 @@ test: bin/deposit-test
 
 bin/deposit-test: build/test/main.o build/test/deposit_test.o build/src/deposit.o build/test/validation_test.o
 	gcc -I thirdparty -I src -Wall -Werror build/test/deposit_test.o build/test/main.o build/src/deposit.o build/test/validation_test.o -o bin/deposit-test
+	cd bin && ./deposit-test
 
 build/test/main.o: test/main.c
 	gcc -I thirdparty -I src -Wall -Werror -c test/main.c -o build/test/main.o
